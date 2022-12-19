@@ -37,18 +37,21 @@ public class Game {
         input = sc.nextLine();
         player.setName(bemenet.getJatekosNev());
         if (input.equals("játék")) {
-            System.out.print("Add meg merre szeretnél lépni [jobb/bal le/fel] => ");
             map.create();
+            printMap.printMap(map.getBoard());
             do {
-                printMap.printMap(map.getBoard());
-                jatekosMove.playerMove(input, map);
-                bot.houndMove(map);
-                if (map.getFoxPlace()[0] == 7) {
-                    System.out.println("Gratulálok nyertél!");
-                    adatbazis.statupdate();
-                    break;
+                System.out.print("Add meg merre szeretnél lépni [jobb/bal le/fel] => ");
+                input = sc.nextLine();
+                if(!input.equals("kilépés")){
+                    jatekosMove.playerMove(input, map);
+                    bot.houndMove(map);
+                    printMap.printMap(map.getBoard());
+                    if (map.getFoxPlace()[0] == 7) {
+                        System.out.println("Gratulálok nyertél!");
+                        adatbazis.statupdate();
+                        break;
+                    }
                 }
-
             } while (!input.equals("kilépés"));
 
             System.out.println("Köszi a játékot!");
