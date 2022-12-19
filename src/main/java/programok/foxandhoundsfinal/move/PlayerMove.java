@@ -56,10 +56,9 @@ public class PlayerMove {
                 foxRow++;
                 foxCol++;
                 voltlepes = true;
-            }else if(input.equals("kilépés")){
+            } else if (input.equals("kilépés")) {
                 break;
-            }
-            else {
+            } else {
                 System.out.println("Hibás lépés! Adj meg egy szabályos lépést!");
                 System.out.print("Add meg merre szeretnél lépni [jobb/bal le/fel] => ");
                 input = sc.nextLine();

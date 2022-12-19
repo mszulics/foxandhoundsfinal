@@ -42,7 +42,7 @@ public class Game {
             do {
                 System.out.print("Add meg merre szeretnél lépni [jobb/bal le/fel] => ");
                 input = sc.nextLine();
-                if(!input.equals("kilépés")){
+                if (!input.equals("kilépés")) {
                     jatekosMove.playerMove(input, map);
                     bot.houndMove(map);
                     printMap.printMap(map.getBoard());
